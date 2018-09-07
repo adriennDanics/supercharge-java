@@ -1,4 +1,4 @@
-package com.superchargetest.java.controller;
+package com.superchargetest.java.transfer;
 
 import com.superchargetest.java.model.Account;
 import com.superchargetest.java.model.TransactionHistory;

@@ -53,7 +53,6 @@ public class TransactionHistory {
         this.typeOfTransaction = typeOfTransaction;
     }
 
-
     @Override
     public String toString() {
         return  "id=" + id +
