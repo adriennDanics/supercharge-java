@@ -1,12 +1,11 @@
 package com.superchargetest.java.model;
 
-import javax.persistence.*;
-import java.net.UnknownServiceException;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 public class TransactionHistory {
+
+    private static long count;
+
     private long id;
 
     private Date date;
@@ -18,6 +17,7 @@ public class TransactionHistory {
     private User user;
 
     public TransactionHistory(Date date, long amount, TransactionType typeOfTransaction, User user) {
+        id = ++count;
         this.date = date;
         this.amount = amount;
         this.typeOfTransaction = typeOfTransaction;
@@ -53,6 +53,13 @@ public class TransactionHistory {
         this.typeOfTransaction = typeOfTransaction;
     }
 
-    private TransactionHistory() {
+
+    @Override
+    public String toString() {
+        return  "id=" + id +
+                ", date=" + date +
+                ", amount=" + amount +
+                ", typeOfTransaction=" + typeOfTransaction +
+                "} \n\r";
     }
 }

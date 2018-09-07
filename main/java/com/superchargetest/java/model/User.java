@@ -7,21 +7,20 @@ import java.util.List;
 import java.util.Set;
 
 public class User {
+    private static long count;
 
     private long id;
 
-    private Set<Account> accountNumbers = new HashSet<>();
+    private List<TransactionHistory> transactions = new ArrayList<>();
 
-    private Set<TransactionHistory> transactions = new HashSet<>();
+    private Set<Account> accountNumbers = new HashSet<>();
 
     private String name;
 
     public User(Account accountNumber, String name) {
+        id = ++count;
         this.accountNumbers.add(accountNumber);
         this.name = name;
-    }
-
-    private User() {
     }
 
     public long getId() {
@@ -50,6 +49,24 @@ public class User {
 
     public void addAccountNumber(Account newAccountNumber) {
         this.accountNumbers.add(newAccountNumber);
+    }
+
+    public void addTransactions(TransactionHistory transaction) {
+        transactions.add(transaction);
+    }
+
+    public List<TransactionHistory> getTransactions() {
+        return transactions;
+    }
+
+    public List<TransactionHistory> getTypesOfTransactions(TransactionType type) {
+        List<TransactionHistory> transactionHistoryList = new ArrayList<>();
+        for (TransactionHistory transaction: transactions) {
+            if((transaction.getTypeOfTransaction()).equals(type)){
+                transactionHistoryList.add(transaction);
+            }
+        }
+        return transactionHistoryList;
     }
 
     @Override

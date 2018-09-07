@@ -1,18 +1,16 @@
 package com.superchargetest.java.model;
 
-import javax.persistence.*;
-
 public class Account {
+
+    private static long count;
 
     private long accountNumber;
 
     private long accountBalance;
 
     public Account(long accountBalance) {
+        accountNumber = ++count;
         this.accountBalance = accountBalance;
-    }
-
-    private Account() {
     }
 
     public long getAccountNumber() {
